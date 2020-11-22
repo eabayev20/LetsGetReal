@@ -13,29 +13,35 @@ public class RealNumber{
     return ""+getValue();
   }
   public boolean equals (RealNumber other) {
-    if (other == 0) {
-      return getvalue() == 0;
+    if (other.getValue() == 0) {
+      return value == 0;
     }
-    else if (getvalue() == 0) {
-      return other == 0;
+    else if (value == 0) {
+      return other.getValue() == 0;
     }
     else {
       double error = (value-other.getValue())/value;
-    return Math.abs(error)<0.001;
+    return Math.abs(error)<0.00001;
 
       }
     }
     public RealNumber add(RealNumber other){
-
-         return other + getValue();
+        RealNumber r = new RealNumber(other.getValue() + value);
+         return r;
       }
     public RealNumber multiply(RealNumber other){
-             return other * getValue();
+
+             RealNumber r = new RealNumber(other.getValue() * value);
+              return r;
      }
      public RealNumber divide(RealNumber other) {
-        return getValue()/other;
+
+        RealNumber r = new RealNumber(value/other.getValue());
+         return r;
      }
      public RealNumber subtract(RealNumber other ) {
-       return getValue()- other;
+
+       RealNumber r = new RealNumber(value- other.getValue());
+        return r;
      }
    }
