@@ -61,3 +61,18 @@ public class RationalNumber extends RealNumber {
     int newnum = getNumerator() * other.getDenominator();
     return RationalNumber(newnum,newden);
   }
+  public RationalNumber add(RationalNumber other){
+    int nume1 = numerator * other.getDenominator();
+    int nume2 = other.getNumerator() * denominator;
+    int diff = nume1 + nume2;
+    int commonDeno = denominator * other.getDenominator();
+    return new RationalNumber(diff,commonDeno);
+  }
+  public RationalNumber subtract(RationalNumber other){
+    int nume1 = numerator * other.getDenominator();
+    int nume2 = other.getNumerator() * denominator;
+    int diff = nume1 - nume2;
+    int commonDeno = denominator * other.getDenominator();
+    return new RationalNumber(diff,commonDeno);
+  }
+}
