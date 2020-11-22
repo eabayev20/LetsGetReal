@@ -14,7 +14,7 @@ public class RationalNumber extends RealNumber {
       nume = nume * -1;
     }
     numerator = nume;
-    denominator = deno;s
+    denominator = deno;
   }
   public double getValue() {
     return nume/deno;
@@ -26,17 +26,19 @@ public class RationalNumber extends RealNumber {
     return denominator;
   }
   public RationalNumber reciprocal(){
-    return RationalNumber(getDenominator(), getNumerator());
+    RationalNumber r = new RationalNumber(denominator,numerator);
+    return r;
+    
   }
   public boolean equals(RationalNumber other){
-    if (getNumerator() == other.getNumerator() && getDenominator() == other.getDenominator()) {
+    if (numerator == other.getNumerator() && numerator == other.getDenominator()) {
       return true;
     }
     return false;
   }
   public String toString() {
     String s = "";
-    s = s + getNumerator() + "/" + getDenominator();
+    s = s + numerator + "/" + denominator;
     return s;
   }
   private static int gcd(int a, int b){
@@ -48,18 +50,21 @@ public class RationalNumber extends RealNumber {
     return a;
   }
   private void reduce(){
-    g = gcd(getNumerator(), getDenominator());
-    RationalNumber(getNumerator()/g, getDenominator()/g);
+    int g = gcd(denominator, numerator);
+    RationalNumber r = new RationalNumber(numerator/g, denominator/g);
   }
   public RationalNumber multiply(RationalNumber other){
-    int newden = getDenominator() * other.getDenominator();
-    int newnum = getNumerator() * other.getNumerator();
-    return RationalNumber(newnum,newden);
+    int newden = denominator * other.getDenominator();
+    int newnum = numerator * other.getNumerator();
+    RationalNumber r = new RationalNumber(newnum,newden);
+    return r;
   }
   public RationalNumber divide(RationalNumber other){
-    int newden = getDenominator() * other.getNumerator();
-    int newnum = getNumerator() * other.getDenominator();
-    return RationalNumber(newnum,newden);
+    int newden = denominator * other.getNumerator();
+    int newnum = numerator * other.getDenominator();
+
+    RationalNumber r = new RationalNumber(newnum,newden);
+    return r;
   }
   public RationalNumber add(RationalNumber other){
     int nume1 = numerator * other.getDenominator();
