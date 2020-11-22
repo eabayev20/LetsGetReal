@@ -16,9 +16,21 @@ public class RationalNumber extends RealNumber {
     numerator = nume;
     denominator = deno;s
   }
+  public double getValue() {
+    return nume/deno;
+  }
   public int getNumerator(){
     return numerator;
   }
   public int getDenominator(){
     return denominator;
+  }
+  public RationalNumber reciprocal(){
+    return RationalNumber(getDenominator(), getNumerator());
+  }
+  public boolean equals(RationalNumber other){
+    if (getNumerator() == other.getNumerator() && getDenominator() == other.getDenominator()) {
+      return true;
+    }
+    return false;
   }
