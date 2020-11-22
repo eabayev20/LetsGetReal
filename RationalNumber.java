@@ -34,3 +34,30 @@ public class RationalNumber extends RealNumber {
     }
     return false;
   }
+  public String toString() {
+    String s = "";
+    s = s + getNumerator() + "/" + getDenominator();
+    return s;
+  }
+  private static int gcd(int a, int b){
+    while(b!=0){
+      int r = a%b;
+      a = b;
+      b = r;
+    }
+    return a;
+  }
+  private void reduce(){
+    g = gcd(getNumerator(), getDenominator());
+    RationalNumber(getNumerator()/g, getDenominator()/g);
+  }
+  public RationalNumber multiply(RationalNumber other){
+    int newden = getDenominator() * other.getDenominator();
+    int newnum = getNumerator() * other.getNumerator();
+    return RationalNumber(newnum,newden);
+  }
+  public RationalNumber divide(RationalNumber other){
+    int newden = getDenominator() * other.getNumerator();
+    int newnum = getNumerator() * other.getDenominator();
+    return RationalNumber(newnum,newden);
+  }
