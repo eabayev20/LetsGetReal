@@ -29,3 +29,13 @@ public class RealNumber{
 
          return other + getValue();
       }
+    public RealNumber multiply(RealNumber other){
+             return other * getValue();
+     }
+     public RealNumber divide(RealNumber other) {
+        return getValue()/other;
+     }
+     public RealNumber subtract(RealNumber other ) {
+       return getValue()- other;
+     }
+   }
