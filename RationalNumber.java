@@ -44,8 +44,14 @@ public class RationalNumber extends RealNumber {
   }
   public String toString() {
     String s = "";
+    if (denominator == 1) {
+      s = s + numerator;
+      return s;
+    }
+    else {
     s = s + numerator + "/" + denominator;
     return s;
+    }
   }
   private static int gcd(int a, int b){
     while(b!=0){
