@@ -15,9 +15,10 @@ public class RationalNumber extends RealNumber {
     }
     numerator = nume;
     denominator = deno;
+    reduce();
   }
-  public double getValue() {
-    return nume/deno;
+  public double getValue(){
+    return (double)numerator/(double)denominator;
   }
   public int getNumerator(){
     return numerator;
@@ -27,11 +28,16 @@ public class RationalNumber extends RealNumber {
   }
   public RationalNumber reciprocal(){
     RationalNumber r = new RationalNumber(denominator,numerator);
+    r.reduce();
     return r;
-    
+
   }
   public boolean equals(RationalNumber other){
-    if (numerator == other.getNumerator() && numerator == other.getDenominator()) {
+    if (other.getNumerator()==0) {
+      denominator = other.getDenominator();
+    }
+
+    if (numerator == other.getNumerator() && denominator == other.getDenominator()) {
       return true;
     }
     return false;
@@ -50,8 +56,9 @@ public class RationalNumber extends RealNumber {
     return a;
   }
   private void reduce(){
-    int g = gcd(denominator, numerator);
-    RationalNumber r = new RationalNumber(numerator/g, denominator/g);
+    int g = gcd(numerator, denominator);
+    numerator = numerator/g;
+    denominator = denominator/g;
   }
   public RationalNumber multiply(RationalNumber other){
     int newden = denominator * other.getDenominator();
