@@ -2,7 +2,7 @@ public class RationalNumber extends RealNumber {
   private int numerator, denominator;
 
   public RationalNumber (int nume, int deno) {
-    super(0.0);
+    super();
   numerator = nume;
   denominator = deno;
   if (deno == 0) {
@@ -44,10 +44,15 @@ public class RationalNumber extends RealNumber {
   }
   public String toString() {
     String s = "";
-    if (denominator == 1) {
+    if (numerator == 0) {
       s = s + numerator;
       return s;
     }
+    else if (denominator == 1) {
+      s = s + numerator;
+      return s;
+    }
+
     else {
     s = s + numerator + "/" + denominator;
     return s;
