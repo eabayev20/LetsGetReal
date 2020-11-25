@@ -23,17 +23,10 @@ public abstract class Number{
   *Special case: if one is exactly zero, the other must be exactly zero.
   */
   public boolean equals(Number other){
-    public boolean equals (RealNumber other) {
-      if (other.getValue() == 0) {
-        return value == 0;
+      if (getValue() == 0.0){
+        return (other.getValue() == 0.0);
       }
-      else if (value == 0) {
-        return other.getValue() == 0;
-      }
-      else {
-        double error = (value-other.getValue())/value;
-      return Math.abs(error)<0.00001;
-
-        }
-      }
+      double diff = (getValue()-other.getValue());
+      return Math.abs(diff)<=0.00001;
+    }
 }
